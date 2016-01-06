@@ -18,7 +18,7 @@ namespace KeyVaultSampleApp1.Controllers
             var stopwatch = Stopwatch.StartNew();
             var secretValue = KeyVaultAccessor.GetSecret(CloudConfigurationManager.GetSetting(Constants.DevSecretId1)).Result;
             stopwatch.Stop();
-            //ViewBag["FetchSecretElapsedTime"] = stopwatch.ElapsedMilliseconds;
+            ViewBag.FetchSecretElapsedTime = stopwatch.ElapsedMilliseconds;
             return View();
         }
 
