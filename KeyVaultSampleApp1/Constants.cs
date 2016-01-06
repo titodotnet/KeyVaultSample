@@ -11,5 +11,7 @@ namespace KeyVaultSampleApp1
         public static string DevSecretId1 = "DevSecretId1";
         public static string KeyVaultAuthClientId = "KeyVaultAuthClientId";
         public static string KeyVaultAuthCertThumbprint = "KeyVaultAuthCertThumbprint";
+        public static string VaultUri = "VaultUri";
+        public static string DevSecretName1 = "DevSecretName1";
     }
 }

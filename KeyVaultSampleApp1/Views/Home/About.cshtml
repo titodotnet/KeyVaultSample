@@ -5,3 +5,17 @@
 <h3>@ViewBag.Message</h3>
 
 <p>Use this area to provide additional information.</p>
+
+<div class="row">
+    <div class="col-md-9">
+        <h2>
+            Custom pane
+        </h2>
+        <p>
+            Key vault secret value for <strong>@ViewBag.SecretId</strong> is: <strong>@ViewBag.SecretValue</strong>
+        </p>
+        <p>
+            Total elapsed time for fetching secret from vault (in milliseconds): @ViewBag.FetchSecretElapsedTime
+        </p>
+    </div>
+</div>

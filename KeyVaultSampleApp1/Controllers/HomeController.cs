@@ -13,18 +13,42 @@ namespace KeyVaultSampleApp1.Controllers
     {
         public async Task<ActionResult> Index()
         {
-            var secretValueFromKeyVault = await KeyVaultAccessor.GetSecret(CloudConfigurationManager.GetSetting(Constants.DevSecretId1));
+            string devSecretId1 = CloudConfigurationManager.GetSetting(Constants.DevSecretId1);
 
             var stopwatch = Stopwatch.StartNew();
-            var secretValue = KeyVaultAccessor.GetSecret(CloudConfigurationManager.GetSetting(Constants.DevSecretId1)).Result;
+            var secretValueFromKeyVault = await KeyVaultAccessor.GetSecret(devSecretId1);
             stopwatch.Stop();
+            ViewBag.InitialFetchSecretElapsedTime = stopwatch.ElapsedMilliseconds;
+
+            stopwatch.Restart();
+            var secretValue = KeyVaultAccessor.GetSecret(devSecretId1).Result;
+            stopwatch.Stop();
+
+            ViewBag.SecretId = devSecretId1;
+            ViewBag.SecretValue = secretValue;
             ViewBag.FetchSecretElapsedTime = stopwatch.ElapsedMilliseconds;
             return View();
         }
 
-        public ActionResult About()
+        public async Task<ActionResult> About()
         {
             ViewBag.Message = "Your application description page.";
+
+            string vaultUri = CloudConfigurationManager.GetSetting(Constants.VaultUri);
+            string devSecretName1 = CloudConfigurationManager.GetSetting(Constants.DevSecretName1);
+
+            var stopwatch = Stopwatch.StartNew();
+            var secretValueFromKeyVault = await KeyVaultAccessor.GetSecret(vaultUri, devSecretName1);
+            stopwatch.Stop();
+            ViewBag.InitialFetchSecretElapsedTime = stopwatch.ElapsedMilliseconds;
+
+            stopwatch.Restart();
+            var secretValue = KeyVaultAccessor.GetSecret(vaultUri, devSecretName1).Result;
+            stopwatch.Stop();
+
+            ViewBag.SecretId = devSecretName1;
+            ViewBag.SecretValue = secretValue;
+            ViewBag.FetchSecretElapsedTime = stopwatch.ElapsedMilliseconds;
 
             return View();
         }

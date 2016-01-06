@@ -14,9 +14,14 @@
       <Setting name="KeyVaultAuthClientId" />
       <Setting name="KeyVaultAuthCertThumbprint" />
       <Setting name="DevSecretId1" />
+      <Setting name="VaultUri" />
+      <Setting name="DevSecretName1" />
     </ConfigurationSettings>
     <Endpoints>
       <InputEndpoint name="Endpoint1" protocol="http" port="80" />
     </Endpoints>
+    <Certificates>
+      <Certificate name="KeyVaultCertificate1" storeLocation="LocalMachine" storeName="My" />
+    </Certificates>
   </WebRole>
 </ServiceDefinition>

@@ -39,6 +39,18 @@ namespace KeyVaultSampleApp1
         }
 
         /// <summary>
+        /// Get a secret from Key Vault
+        /// </summary>
+        /// <param name="vaultUri">vault uri</param>
+        /// <param name="secretName">secret name</param>
+        /// <returns>secret value</returns>
+        public static async Task<string> GetSecret(string vaultUri,string secretName)
+        {
+            var secret = await keyVaultClient.GetSecretAsync(vaultUri, secretName).ConfigureAwait(false);
+            return secret.Value;
+        }
+
+        /// <summary>
         /// Authentication callback that gets a token using the X509 certificate
         /// </summary>
         /// <param name="authority">Address of the authority</param>
