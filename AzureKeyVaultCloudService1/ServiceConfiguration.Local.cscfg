@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="AzureKeyVaultCloudService1" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2015-04.2.6">
+  <Role name="KeyVaultSampleApp1">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="DevSecretUrl1" value="https://titodevkeyvault.vault.azure.net:443/secrets/DevSecret1/03c6abbd0e354f87bb431af70478f71b" />
+      <Setting name="KeyVaultAuthClientId" value="9af6b041-c620-4c79-96af-34cadadda78a" />
+      <Setting name="KeyVaultAuthCertThumbprint" value="BB416AA2962F6A349C4FB0CDF33E79FFF2EFACE1" />
+      <Setting name="DevSecretId1" value="https://titodevkeyvault.vault.azure.net:443/secrets/DevSecret1" />
+    </ConfigurationSettings>
+  </Role>
+</ServiceConfiguration>
