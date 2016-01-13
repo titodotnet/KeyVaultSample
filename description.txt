@@ -1,2 +1,7 @@
+creating selfsigned certificate:
 makecert -sv titodevcert2key.pvk -n "cn=AD Test Vault Application" titodevcert2.cer -b 12/30/2015 -e 12/31/2017 -r -len 2048
 pvk2pfx -pvk titodevcert2key.pvk -spc titodevcert2.cer -pfx titodevcert2.pfx -po testpassword
+
+Cons:
+1. We cannot update an existing AD application with certificate. Azure AD application to be created with certificate. 
+2. DR / global replication not avialable for Key vault.
