@@ -19,7 +19,9 @@ Set-AzureRmContext -SubscriptionId $subscriptionId
 New-AzureRmResourceGroup –Name $resourceGroupName –Location $location
 New-AzureRmKeyVault -VaultName $vaultName -ResourceGroupName $resourceGroupName -Location $location -SKU 'Premium'
 
+<#
 #Operation - Add sample secret to Key Vault 
 $secretvalue1 = ConvertTo-SecureString 'devsecret value 1' -AsPlainText -Force
 $secret = Set-AzureKeyVaultSecret -VaultName $vaultName -Name 'DevSecret1' -SecretValue $secretvalue1
 $secret.Id
+#>
