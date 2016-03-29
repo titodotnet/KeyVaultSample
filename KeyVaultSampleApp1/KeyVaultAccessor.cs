@@ -14,7 +14,7 @@ namespace KeyVaultSampleApp1
     /// 
     /// Authentication when calling Key Vault is done through the configured X509 ceritifcate.
     /// </summary>
-    public class KeyVaultAccessor
+    public static class KeyVaultAccessor
     {
         private static KeyVaultClient keyVaultClient;
         private static ClientAssertionCertificate assertionCert;
@@ -62,6 +62,9 @@ namespace KeyVaultSampleApp1
             var context = new AuthenticationContext(authority, TokenCache.DefaultShared);
 
             var result = await context.AcquireTokenAsync(resource, assertionCert);
+
+            // In real case implementaation the above async call has been converted to sync call (as specified below) to avoid the token refresh issue.
+            //var result = context.AcquireTokenAsync(resource, assertionCert);
 
             return result.AccessToken;
         }
